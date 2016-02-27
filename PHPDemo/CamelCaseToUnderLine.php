@@ -12,7 +12,7 @@
  * ------------------------------------------
  */
 
-$array = array(
+$input = array(
     "userName" => "elmman",
     "userPassword" => "123456",
     "userAge" => 26,
@@ -26,21 +26,21 @@ $array = array(
 );
 
 
-function convertArray(array $array) {
-    $new_array = array();
-    foreach ($array as $key => $value) {
+function convertArray(array $input) {
+    $output = array();
+    foreach ($input as $key => $value) {
         if (is_array($value)) {
             $value = convertArray($value);
         }
         $new_key = strtolower(preg_replace('/((?<=[a-z])(?=[A-Z]))/', '_', $key));
-        $new_array[$new_key] = $value;
+        $output[$new_key] = $value;
     }
-    return $new_array;
+    return $output;
 }
 
-$new_array = convertArray($array);
+$output = convertArray($input);
 
-print_r($new_array);
+print_r($output);
 
 
 /*---------------out put-----------------*/
