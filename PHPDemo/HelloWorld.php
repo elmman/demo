@@ -1,5 +1,3 @@
 <?php
 
-phpinfo();
-
-?>
+echo "hello world\n";
